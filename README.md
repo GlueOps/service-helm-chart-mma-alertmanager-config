@@ -1,0 +1,1 @@
+# service-helm-chart-mma-alertmanager-config
