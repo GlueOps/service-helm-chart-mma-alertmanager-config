@@ -12,12 +12,12 @@ spec:
     matchers:
     - name: team
       value: {{ .Values.labels.team }}
-    - name: namespace
-      value: {{ .Values.labels.namespace }}
-    - name: component
-      value: {{ .Values.labels.component }}
-    - name: alertname
-      value: {{ .Values.labels.alertname }}
+    # - name: namespace
+    #   value: {{ .Values.labels.namespace }}
+    # - name: component
+    #   value: {{ .Values.labels.component }}
+    # - name: alertname
+    #   value: {{ .Values.labels.alertname }}
   receivers:
   - name: {{ .Release.Name }}
     opsgenieConfigs:
@@ -42,12 +42,12 @@ spec:
     matchers:
     - name: team
       value: {{ .Values.labels.team }}
-    - name: namespace
-      value: {{ .Values.labels.namespace }}
-    - name: component
-      value: {{ .Values.labels.component }}
-    - name: alertname
-      value: {{ .Values.labels.alertname }}
+    # - name: namespace
+    #   value: {{ .Values.labels.namespace }}
+    # - name: component
+    #   value: {{ .Values.labels.component }}
+    # - name: alertname
+    #   value: {{ .Values.labels.alertname }}
   receivers:
   - name: {{ .Release.Name }}
     slackConfigs:
