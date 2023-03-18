@@ -1,0 +1,60 @@
+{{ if eq .Values.receiverType "opsgenie" }}
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  route:
+    groupBy: {{ .Values.route.groupBy }}
+    repeatInterval: {{ .Values.route.repeatInterval }}
+    groupInterval: {{ .Values.route.groupInterval }}
+    receiver: {{ .Release.Name }}
+    matchers:
+    - name: team
+      value: {{ .Values.labels.team }}
+    - name: namespace
+      value: {{ .Values.labels.namespace }}
+    - name: component
+      value: {{ .Values.labels.component }}
+    - name: alertname
+      value: {{ .Values.labels.alertname }}
+  receivers:
+  - name: {{ .Release.Name }}
+    opsgenieConfigs:
+    - apiKey:
+        key: opsgenie_apikey
+        name: {{ .Release.Name }}
+      apiURL: "https://api.opsgenie.com/"
+      sendResolved: true
+      updateAlerts: true
+{{ end }}
+{{ if eq .Values.receiverType "slack" }}
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  route:
+    groupBy: {{ .Values.route.groupBy }}
+    repeatInterval: {{ .Values.route.repeatInterval }}
+    groupInterval: {{ .Values.route.groupInterval }}
+    receiver: {{ .Release.Name }}
+    matchers:
+    - name: team
+      value: {{ .Values.labels.team }}
+    - name: namespace
+      value: {{ .Values.labels.namespace }}
+    - name: component
+      value: {{ .Values.labels.component }}
+    - name: alertname
+      value: {{ .Values.labels.alertname }}
+  receivers:
+  - name: {{ .Release.Name }}
+    slackConfigs:
+    - apiURL: 
+        key: slack_webhook
+        name: {{ .Release.Name }}
+      channel: {{ .Values.slack.channel | quote }}
+      sendResolved: true
+{{ end }}
+
