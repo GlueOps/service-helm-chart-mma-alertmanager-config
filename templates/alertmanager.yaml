@@ -10,14 +10,22 @@ spec:
     groupInterval: {{ .Values.route.groupInterval }}
     receiver: {{ .Release.Name }}
     matchers:
+{{ if ne (toString .Values.team) "nil" }}
     - name: team
       value: {{ .Values.labels.team }}
-    # - name: namespace
-    #   value: {{ .Values.labels.namespace }}
-    # - name: component
-    #   value: {{ .Values.labels.component }}
-    # - name: alertname
-    #   value: {{ .Values.labels.alertname }}
+{{ end }}
+{{ if ne (toString .Values.namespace) "nil" }}
+    - name: namespace
+      value: {{ .Values.labels.namespace }}
+{{ end }}
+{{ if ne (toString .Values.component) "nil" }}
+    - name: component
+      value: {{ .Values.labels.component }}
+{{ end }}
+{{ if ne (toString .Values.alertname) "nil" }}
+    - name: alertname
+      value: {{ .Values.labels.alertname }}
+{{ end }}
   receivers:
   - name: {{ .Release.Name }}
     opsgenieConfigs:
@@ -40,14 +48,22 @@ spec:
     groupInterval: {{ .Values.route.groupInterval }}
     receiver: {{ .Release.Name }}
     matchers:
+{{ if ne (toString .Values.team) "nil" }}
     - name: team
       value: {{ .Values.labels.team }}
-    # - name: namespace
-    #   value: {{ .Values.labels.namespace }}
-    # - name: component
-    #   value: {{ .Values.labels.component }}
-    # - name: alertname
-    #   value: {{ .Values.labels.alertname }}
+{{ end }}
+{{ if ne (toString .Values.namespace) "nil" }}
+    - name: namespace
+      value: {{ .Values.labels.namespace }}
+{{ end }}
+{{ if ne (toString .Values.component) "nil" }}
+    - name: component
+      value: {{ .Values.labels.component }}
+{{ end }}
+{{ if ne (toString .Values.alertname) "nil" }}
+    - name: alertname
+      value: {{ .Values.labels.alertname }}
+{{ end }}
   receivers:
   - name: {{ .Release.Name }}
     slackConfigs:
