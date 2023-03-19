@@ -9,13 +9,11 @@ spec:
     groupInterval: {{ .Values.route.groupInterval }}
     receiver: {{ .Release.Name }}
     matchers:
+    - name: namespace
+      value: {{ .Release.Namespace }}
 {{ if ne (toString .Values.labels.team) "nil" }}
     - name: team
       value: {{ .Values.labels.team }}
-{{ end }}
-{{ if ne (toString .Values.labels.namespace) "nil" }}
-    - name: namespace
-      value: {{ .Values.labels.namespace }}
 {{ end }}
 {{ if ne (toString .Values.labels.component) "nil" }}
     - name: component
