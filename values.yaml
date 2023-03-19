@@ -12,7 +12,6 @@ slack:
 
 labels:
   team: nil
-  namespace: nil
   component: nil
   alertname: nil
 
