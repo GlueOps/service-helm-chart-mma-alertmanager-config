@@ -3,9 +3,6 @@
 receiverType: slack # or opsgenie
 vault_path: nil
 
-opsgenie:
-  apikey: nil
-
 slack:
   webhook: nil
   channel: nil
