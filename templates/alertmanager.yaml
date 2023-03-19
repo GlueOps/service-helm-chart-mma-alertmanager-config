@@ -10,19 +10,19 @@ spec:
     groupInterval: {{ .Values.route.groupInterval }}
     receiver: {{ .Release.Name }}
     matchers:
-{{ if ne (toString .Values.team) "nil" }}
+{{ if ne (toString .Values.labels.team) "nil" }}
     - name: team
       value: {{ .Values.labels.team }}
 {{ end }}
-{{ if ne (toString .Values.namespace) "nil" }}
+{{ if ne (toString .Values.labels.namespace) "nil" }}
     - name: namespace
       value: {{ .Values.labels.namespace }}
 {{ end }}
-{{ if ne (toString .Values.component) "nil" }}
+{{ if ne (toString .Values.labels.component) "nil" }}
     - name: component
       value: {{ .Values.labels.component }}
 {{ end }}
-{{ if ne (toString .Values.alertname) "nil" }}
+{{ if ne (toString .Values.labels.alertname) "nil" }}
     - name: alertname
       value: {{ .Values.labels.alertname }}
 {{ end }}
@@ -48,19 +48,19 @@ spec:
     groupInterval: {{ .Values.route.groupInterval }}
     receiver: {{ .Release.Name }}
     matchers:
-{{ if ne (toString .Values.team) "nil" }}
+{{ if ne (toString .Values.labels.team) "nil" }}
     - name: team
       value: {{ .Values.labels.team }}
 {{ end }}
-{{ if ne (toString .Values.namespace) "nil" }}
+{{ if ne (toString .Values.labels.namespace) "nil" }}
     - name: namespace
       value: {{ .Values.labels.namespace }}
 {{ end }}
-{{ if ne (toString .Values.component) "nil" }}
+{{ if ne (toString .Values.labels.component) "nil" }}
     - name: component
       value: {{ .Values.labels.component }}
 {{ end }}
-{{ if ne (toString .Values.alertname) "nil" }}
+{{ if ne (toString .Values.labels.alertname) "nil" }}
     - name: alertname
       value: {{ .Values.labels.alertname }}
 {{ end }}
