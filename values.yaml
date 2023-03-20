@@ -1,5 +1,3 @@
-
-  
 # -- Path for to the `opsgenie_apikey` in vault. They key must be named `slack_webhook`. The path can be anything ex. `secret/kv-v2-glueops/notifications`
 vault_path: nil
 
